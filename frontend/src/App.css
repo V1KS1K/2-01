@@ -1,0 +1,299 @@
+/* Импорт качественных шрифтов */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+  --primary: #d4418e;        /* Основной розовый */
+  --primary-hover: #b03072;  /* Розовый при наведении */
+  --bg-color: #fdf2f8;       /* Фон страницы (очень нежный розовый) */
+  --card-bg: #ffffff;        /* Фон карточки */
+  --text-main: #1f2937;      /* Основной текст */
+  --text-muted: #6b7280;     /* Приглушенный текст */
+  --border-color: #fce7f3;   /* Цвет границ */
+  --shadow: 0 10px 15px -3px rgba(212, 65, 142, 0.05), 0 4px 6px -2px rgba(212, 65, 142, 0.05);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Контейнер */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Шапка сайта */
+.header {
+  background: #ffffff;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between; /* Название слева, кнопка справа */
+  align-items: center;
+}
+
+.logo h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--primary);
+  margin: 0;
+}
+
+.logo p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+/* Кнопка "Добавить" в шапке */
+.btn-add {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 6px rgba(212, 65, 142, 0.2);
+}
+
+.btn-add:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(212, 65, 142, 0.3);
+}
+
+/* Сетка товаров */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+/* Карточка товара */
+.card {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: var(--transition);
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow);
+}
+
+/* Верхняя часть карточки (Тэг и кнопки) */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.tag {
+  background: #fff1f2;
+  color: var(--primary);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Кнопки управления ВНУТРИ карточки */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.act-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.9rem;
+}
+
+.act-btn.edit {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.act-btn.del {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+.act-btn:hover {
+  transform: scale(1.1);
+  filter: brightness(0.9);
+}
+
+/* Текст в карточке */
+.card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* Цена и наличие */
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.stock {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* Кнопка "В корзину" */
+.btn-cart {
+  background: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+  padding: 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-cart:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* Модальное окно (форма) */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(31, 41, 55, 0.4); /* Полупрозрачный темный фон */
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-box {
+  background: white;
+  padding: 40px;
+  border-radius: 32px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+.modal-box h2 {
+  margin: 0 0 24px 0;
+  font-family: 'Playfair Display', serif;
+  color: var(--primary);
+  text-align: center;
+}
+
+.modal-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-box input, 
+.modal-box textarea {
+  padding: 12px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.modal-box input:focus, 
+.modal-box textarea:focus {
+  border-color: var(--primary);
+}
+
+.modal-box textarea {
+  height: 80px;
+  resize: none;
+}
+
+.form-btns {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn-save {
+  flex: 2;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  flex: 1;
+  background: #f3f4f6;
+  color: #4b5563;
+  border: none;
+  padding: 14px;
+  border-radius: 14px;
+  cursor: pointer;
+}
