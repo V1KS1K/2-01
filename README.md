@@ -21,13 +21,13 @@
 Сервер отвечает за базу данных товаров и автоматическую документацию API (Swagger).
 
 ```bash
-cd Practice 1
+cd backend
 npm install
 node app.js
 ```
 
 #### 2. Запуск Клиента (Frontend)
 ```bash
-cd client
+cd frontend
 npm install
 npm start
